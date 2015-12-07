@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cabbage.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @cabbage.content %>
+</p>
+
+<%= link_to 'Edit', edit_cabbage_path(@cabbage) %> |
+<%= link_to 'Back', cabbages_path %>
