@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<header>
+  <h1 class='site-title'>Список игр</h1>
+
+  <div class="pull-right">
+<%= link_to 'Страница *Администратора*', controller: 'cabbages' %>
+  </div>
+
+</header>
+<div class="clearfix"></div>
+
+<div class='row'>
+  <% @cabbages.each do |cabbage| %>
+    <div class='col-sm-6'>
+      <div class="panel panel-default panel-sm">
+        <div class="panel-heading">
+          <h4><%=  link_to cabbage.name, cabbage %></h4>
+        </div>
+        <div class="panel-body">
+          <%=  cabbage.content %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
