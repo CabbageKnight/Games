@@ -4,13 +4,11 @@ class CabbagesController < ApplicationController
   http_basic_authenticate_with name: "captain", password: "carrot"
 
   # GET /cabbages
-  # GET /cabbages.json
   def index
     @cabbages = Cabbage.all
   end
 
   # GET /cabbages/1
-  # GET /cabbages/1.json
   def show
   end
 
@@ -24,43 +22,28 @@ class CabbagesController < ApplicationController
   end
 
   # POST /cabbages
-  # POST /cabbages.json
   def create
     @cabbage = Cabbage.new(cabbage_params)
-
-    respond_to do |format|
-      if @cabbage.save
-        format.html { redirect_to @cabbage, notice: 'Cabbage was successfully created.' }
-        format.json { render :show, status: :created, location: @cabbage }
-      else
-        format.html { render :new }
-        format.json { render json: @cabbage.errors, status: :unprocessable_entity }
-      end
+    if @cabbage.save
+      redirect_to @cabbage, notice: 'Cabbage was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /cabbages/1
-  # PATCH/PUT /cabbages/1.json
   def update
-    respond_to do |format|
-      if @cabbage.update(cabbage_params)
-        format.html { redirect_to @cabbage, notice: 'Right, it`s time to let past go!' }
-        format.json { render :show, status: :ok, location: @cabbage }
-      else
-        format.html { render :edit }
-        format.json { render json: @cabbage.errors, status: :unprocessable_entity }
-      end
+    if @cabbage.update(cabbage_params)
+      redirect_to @cabbage, notice: 'Right, it`s time to let past go!'
+    else
+      render :edit
     end
   end
 
   # DELETE /cabbages/1
-  # DELETE /cabbages/1.json
   def destroy
     @cabbage.destroy
-    respond_to do |format|
-      format.html { redirect_to cabbages_url, notice: 'Cabbage was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to cabbages_url, notice: 'Cabbage was successfully destroyed.'
   end
 
   private
