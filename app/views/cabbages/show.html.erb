@@ -10,5 +10,11 @@
   <%= @cabbage.content %>
 </p>
 
+<p>
+  <%= image_tag @cabbage.image.url %>
+  <%= image_tag @cabbage.image.url(:med) %>
+  <%= image_tag @cabbage.image.url(:large) %>
+</p>
+
 <%= link_to 'Edit', edit_cabbage_path(@cabbage) %> |
 <%= link_to 'Back', cabbages_path %>

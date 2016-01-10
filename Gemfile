@@ -43,5 +43,8 @@ group :development, :test do
 
   # отключим ненужный шум в логе сервера
   gem 'quiet_assets'
+
+  # я не знаю, что делаю
+  gem 'paperclip'
 end
 
