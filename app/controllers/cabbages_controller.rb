@@ -46,6 +46,10 @@ class CabbagesController < ApplicationController
     redirect_to cabbages_url, notice: 'Cabbage was successfully destroyed.'
   end
 
+  def clear_image
+    @cabbage.update(image: nil)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cabbage

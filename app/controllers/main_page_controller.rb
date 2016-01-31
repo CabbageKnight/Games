@@ -9,4 +9,8 @@ class MainPageController < ApplicationController
   # GET /cabbages/1
   def show
   end
+  private
+  def mainpage_params
+      params.require(:cabbage).permit(:image)
+    end
 end
