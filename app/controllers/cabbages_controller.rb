@@ -1,5 +1,5 @@
 class CabbagesController < ApplicationController
-  before_action :set_cabbage, only: [:show, :edit, :update, :destroy]
+  before_action :set_cabbage, only: [:show, :edit, :update, :destroy, :clear_image]
 
   http_basic_authenticate_with name: "captain", password: "carrot"
 
@@ -48,6 +48,7 @@ class CabbagesController < ApplicationController
 
   def clear_image
     @cabbage.update(image: nil)
+    redirect_to @cabbage, notice: 'Image was deleted.'
   end
 
   private

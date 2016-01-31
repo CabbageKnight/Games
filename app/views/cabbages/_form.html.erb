@@ -24,9 +24,12 @@
       <div>
         <%= f.file_field :image %>
       </div>
-      <div>
-        <%= link_to 'Очистить изображение', method: :clear_image %>
-      </div>
+
+      <% if @cabbage.persisted? %>
+        <div>
+          <%= link_to 'Очистить изображение', [:clear_image, @cabbage], method: :post %>
+        </div>
+      <% end %>
 
       <br>
 
